@@ -5,3 +5,23 @@
 "INSERT INTO students ('ID', 'Name','Age','Gender','Points') VALUES ('8','New student','25','F','400');
 "UPDATE students SET Points = '320' WHERE Name = "Basma";"
 "UPDATE students SET Points = '190' WHERE Name = "Alex";"
+
+CREATE TABLE graduates 
+(
+	ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	Name TEXT NOT NULL UNIQUE,
+	Age INTEGER,
+	Gender TEXT,
+	Points INTEGER,
+	Graduation TEXT
+);
+
+
+INSERT INTO graduates (Name, Age, Gender, Points)
+SELECT Name, Age, Gender, Points FROM students Where Name = "Layal";
+
+
+UPDATE graduates SET Graduation = '08/09/2018' WHERE Name = 'Layal';
+
+
+DELETE FROM students WHERE Name = "Layal";
